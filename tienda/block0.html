@@ -19,7 +19,7 @@
 @media (hover:hover) and (pointer:fine){.wh .lime:hover,.wh .btn-lime:hover{background:#B4FF3C!important}.wh .btn-dark:hover{background:#262A20!important}}
 @keyframes wslide{to{transform:translateX(-50%)}}.wh .slide{animation:wslide 24s linear infinite}.wh .slide:hover{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.wh .slide{animation:none}.wh .press,.wh .faq-plus{transition:none}}
-body{padding-bottom:96px}
+@media (min-width:768px){body{padding-bottom:110px}}
 </style>
 <script>
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-wj]');if(!a)return;var k=a.getAttribute('data-wj');var t=document.getElementById((window.innerWidth>=768?'d-':'m-')+k);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
