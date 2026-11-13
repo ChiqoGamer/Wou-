@@ -22,4 +22,188 @@
 </style>
 <script>
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-wj]');if(!a)return;var k=a.getAttribute('data-wj');var t=document.getElementById((window.innerWidth>=768?'d-':'m-')+k);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
-</script>
+</script><!--TOP-->
+<style>
+#ns-section-main_product{position:absolute!important;left:-10000px!important;top:0!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.wtop button{font-family:inherit}
+</style>
+<div class="wh wtop"><template data-wt="m"><section id="m-comprar" style="background: #FFFFFF;"><nav aria-label="Estás en" style="padding: 10px 16px; font-size: 14px; color: #4A5244;"><a href="/" style="color: #4A5244;">Inicio</a> / <a href="/productos/" style="color: #4A5244;">Productos</a> / <span style="color: #0B0C0A; font-weight: 600;">Rodillera WOUÜFit</span></nav><div><div style="position: relative; aspect-ratio: 1 / 1; background: #FFFFFF; overflow: hidden;"><img src="{{slideImg}}" alt="{{slideAlt}}" style="width: 100%; height: 100%; object-fit: {{slideFit}}; display: block;"><span style="position: absolute; left: 12px; top: 12px; background: #9BF609; color: #0B0C0A; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 4px;">21% OFF</span><button type="button" class="press" data-h="{{prev}}" aria-label="Foto anterior" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); color: #0B0C0A; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button><button type="button" class="press" data-h="{{next}}" aria-label="Foto siguiente" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); color: #0B0C0A; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button><span style="position: absolute; right: 12px; bottom: 12px; background: rgba(11,12,10,0.8); color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; font-variant-numeric: tabular-nums;">{{counter}}</span></div><div style="display: flex; gap: 8px; padding: 10px 16px 0; overflow-x: auto; scrollbar-width: none;"><sc-for list="{{thumbs}}" as="t"><button type="button" class="press" data-h="{{t.pick}}" aria-label="{{t.label}}" aria-pressed="{{t.on}}" style="{{t.box}}"><img src="{{t.src}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></button></sc-for></div></div><div style="padding: 20px 16px 32px; display: flex; flex-direction: column; gap: 18px;">
+      <div>
+        <p style="margin: 0 0 6px; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #3A7A00;">WOUÜFit · Rodillera</p>
+        <h1 style="margin: 0; font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 46px; line-height: 0.92;">Rodillera WOUÜFit</h1>
+        <p style="margin: 8px 0 0; font-size: 17px; color: #4A5244;">Banda de soporte rotuliano. Talle único, ajuste regulable.</p>
+      </div>
+      <div style="background: #0B0C0A; color: #FFFFFF; border-radius: 14px; padding: 16px 18px;">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <span style="font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 52px; line-height: 0.9; font-variant-numeric: tabular-nums;">{{unitPrice}}</span>
+          <span style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start;"><span style="color: #B9C2AE; text-decoration: line-through; font-size: 17px; font-variant-numeric: tabular-nums;">$24.990</span><span style="background: #9BF609; color: #0B0C0A; font-weight: 700; font-size: 12px; letter-spacing: 0.05em; padding: 3px 8px; border-radius: 4px;">{{unitOff}}</span></span>
+        </div>
+        <div style="margin-top: 8px; font-size: 15px; color: #D3DBC6;"><strong style="color: #FFFFFF;">3 cuotas sin interés</strong> de {{cuota}} · Ahorrás {{saving}}</div>
+      </div>
+      <div>
+        <div style="font-size: 15px; margin-bottom: 10px;"><strong>Color:</strong> {{colorName}}</div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;"><sc-for list="{{colors}}" as="c"><button type="button" class="press" data-h="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.on}}" style="{{c.ring}}"><span style="{{c.dot}}"></span></button></sc-for></div>
+      </div>
+      <fieldset style="border: none; margin: 0; padding: 0;">
+        <legend style="font-weight: 700; font-size: 15px; padding: 0; margin-bottom: 4px;">Elegí cuántas</legend>
+        <p style="margin: 0 0 10px; font-size: 13px; color: #4A5244;">Llevá más, pagá menos. Podés combinar colores.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;"><sc-for list="{{packs}}" as="k"><button type="button" class="press" data-h="{{k.pick}}" aria-pressed="{{k.on}}" style="{{k.box}}"><span style="display: flex; justify-content: space-between; align-items: center; gap: 6px; width: 100%;"><span style="font-weight: 700; font-size: 15px;">{{k.name}}</span><span style="background: #0B0C0A; color: #9BF609; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">{{k.off}}</span></span><span style="font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums;">{{k.price}}</span><span style="font-size: 12px; color: #4A5244; font-variant-numeric: tabular-nums;">{{k.each}}</span><sc-if value="{{k.free}}"><span style="font-size: 12px; font-weight: 700; color: #2F5F00;">✓ Envío gratis</span></sc-if></button></sc-for></div>
+      </fieldset>
+      <button data-act="add" type="button" class="press lime" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; border: none; border-radius: 6px; background: #9BF609; color: #0B0C0A; font-family: inherit; font-weight: 700; font-size: 17px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>Agregar al carrito · {{total}}</button>
+      <form style="margin: 0;" onsubmit="return false" data-shipform>
+        <label for="m-cp-rodillera" style="display: block; font-weight: 700; font-size: 15px; margin-bottom: 8px;">Calculá el envío</label>
+        <div style="display: flex; gap: 8px;">
+          <input id="m-cp-rodillera" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="Tu código postal" style="flex: 1; min-width: 0; height: 48px; border: 1px solid #A9ACA8; border-radius: 6px; padding: 0 14px; font-family: inherit; font-size: 16px;">
+          <button data-act="ship" type="button" class="press" style="height: 48px; padding: 0 18px; border: 2px solid #0B0C0A; background: #FFFFFF; border-radius: 6px; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer;">Calcular</button>
+        </div>
+      </form>
+      <ul style="list-style: none; margin: 0; padding: 0 16px; background: #F2F4EE; border-radius: 14px;"><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M1 3h15v13H1z"></path><path d="M16 8h4l3 3v5h-7z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Envío gratis desde 2 unidades</span><span style="font-size: 14px; color: #4A5244;">A todo el país, con Correo Argentino o Andreani.</span></span></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid #DDE2D4;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><circle cx="5" cy="17" r="3"></circle><circle cx="19" cy="17" r="3"></circle><path d="M8 17h6l3-6h-4l-2-3H8"></path><path d="M15 8h3"></path></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Envío gratis en Zona Norte</span><span style="font-size: 14px; color: #4A5244;">Con nuestra motomensajería, desde 1 unidad.</span></span></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid #DDE2D4;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Compra protegida</span><span style="font-size: 14px; color: #4A5244;">Pagá con Mercado Pago, tarjeta o transferencia.</span></span></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid #DDE2D4;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Te respondemos por WhatsApp</span><span style="font-size: 14px; color: #4A5244;">Gente real del otro lado.</span></span></li></ul>
+    </div></section>
+<div data-sticky style="position: fixed; left: 0; right: 0; bottom: 0; display: none; background: #0B0C0A; color: #FFFFFF; box-shadow: 0 -4px 16px rgba(0,0,0,0.3); z-index: 5;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px;">
+      <img src="{{thumb}}" alt="" style="flex: none; width: 48px; height: 48px; object-fit: contain; background: #FFFFFF; border-radius: 10px; display: block;">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rodillera WOUÜFit · {{colorName}}</span>
+        <span style="display: flex; align-items: baseline; gap: 8px;"><span style="font-weight: 700; font-size: 21px; font-variant-numeric: tabular-nums;">{{total}}</span><span style="font-size: 13px; color: #8C9483;">{{packName}}</span></span>
+      </div>
+      <a href="#" data-act="add" class="press lime" style="flex: none; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 16px; border-radius: 999px; background: #9BF609; color: #0B0C0A; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>Agregar</a>
+    </div>
+  </div></template><template data-wt="d"><section id="d-comprar" style="background: #FFFFFF;"><div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px) 72px;"><nav aria-label="Estás en" style="padding: 18px 0 22px; font-size: 14px; color: #4A5244;"><a href="/" style="color: #4A5244;">Inicio</a> / <a href="/productos/" style="color: #4A5244;">Productos</a> / <span style="color: #0B0C0A; font-weight: 600;">Rodillera WOUÜFit</span></nav><div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: start;"><div style="display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: start;"><div style="display: flex; flex-direction: column; gap: 10px;"><sc-for list="{{thumbs}}" as="t"><button type="button" class="press" data-h="{{t.pick}}" aria-label="{{t.label}}" aria-pressed="{{t.on}}" style="{{t.box}}"><img src="{{t.src}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></button></sc-for></div><div style="position: relative; aspect-ratio: 1 / 1; background: #FFFFFF; overflow: hidden; border-radius: 16px; border: 1px solid #DDE2D4;"><img src="{{slideImg}}" alt="{{slideAlt}}" style="width: 100%; height: 100%; object-fit: {{slideFit}}; display: block;"><span style="position: absolute; left: 12px; top: 12px; background: #9BF609; color: #0B0C0A; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 4px;">21% OFF</span><button type="button" class="press" data-h="{{prev}}" aria-label="Foto anterior" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); color: #0B0C0A; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button><button type="button" class="press" data-h="{{next}}" aria-label="Foto siguiente" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); color: #0B0C0A; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button><span style="position: absolute; right: 12px; bottom: 12px; background: rgba(11,12,10,0.8); color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; font-variant-numeric: tabular-nums;">{{counter}}</span></div></div><div style="padding: 0; display: flex; flex-direction: column; gap: 18px;">
+      <div>
+        <p style="margin: 0 0 6px; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #3A7A00;">WOUÜFit · Rodillera</p>
+        <h1 style="margin: 0; font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 60px; line-height: 0.92;">Rodillera WOUÜFit</h1>
+        <p style="margin: 8px 0 0; font-size: 17px; color: #4A5244;">Banda de soporte rotuliano. Talle único, ajuste regulable.</p>
+      </div>
+      <div style="background: #0B0C0A; color: #FFFFFF; border-radius: 14px; padding: 16px 18px;">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <span style="font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 60px; line-height: 0.9; font-variant-numeric: tabular-nums;">{{unitPrice}}</span>
+          <span style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start;"><span style="color: #B9C2AE; text-decoration: line-through; font-size: 17px; font-variant-numeric: tabular-nums;">$24.990</span><span style="background: #9BF609; color: #0B0C0A; font-weight: 700; font-size: 12px; letter-spacing: 0.05em; padding: 3px 8px; border-radius: 4px;">{{unitOff}}</span></span>
+        </div>
+        <div style="margin-top: 8px; font-size: 15px; color: #D3DBC6;"><strong style="color: #FFFFFF;">3 cuotas sin interés</strong> de {{cuota}} · Ahorrás {{saving}}</div>
+      </div>
+      <div>
+        <div style="font-size: 15px; margin-bottom: 10px;"><strong>Color:</strong> {{colorName}}</div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;"><sc-for list="{{colors}}" as="c"><button type="button" class="press" data-h="{{c.pick}}" aria-label="{{c.name}}" aria-pressed="{{c.on}}" style="{{c.ring}}"><span style="{{c.dot}}"></span></button></sc-for></div>
+      </div>
+      <fieldset style="border: none; margin: 0; padding: 0;">
+        <legend style="font-weight: 700; font-size: 15px; padding: 0; margin-bottom: 4px;">Elegí cuántas</legend>
+        <p style="margin: 0 0 10px; font-size: 13px; color: #4A5244;">Llevá más, pagá menos. Podés combinar colores.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;"><sc-for list="{{packs}}" as="k"><button type="button" class="press" data-h="{{k.pick}}" aria-pressed="{{k.on}}" style="{{k.box}}"><span style="display: flex; justify-content: space-between; align-items: center; gap: 6px; width: 100%;"><span style="font-weight: 700; font-size: 15px;">{{k.name}}</span><span style="background: #0B0C0A; color: #9BF609; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">{{k.off}}</span></span><span style="font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums;">{{k.price}}</span><span style="font-size: 12px; color: #4A5244; font-variant-numeric: tabular-nums;">{{k.each}}</span><sc-if value="{{k.free}}"><span style="font-size: 12px; font-weight: 700; color: #2F5F00;">✓ Envío gratis</span></sc-if></button></sc-for></div>
+      </fieldset>
+      <button data-act="add" type="button" class="press btn-lime" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; border: none; border-radius: 6px; background: #9BF609; color: #0B0C0A; font-family: inherit; font-weight: 700; font-size: 17px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>Agregar al carrito · {{total}}</button>
+      <form style="margin: 0;" onsubmit="return false" data-shipform>
+        <label for="d-cp-rodillera" style="display: block; font-weight: 700; font-size: 15px; margin-bottom: 8px;">Calculá el envío</label>
+        <div style="display: flex; gap: 8px;">
+          <input id="d-cp-rodillera" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="Tu código postal" style="flex: 1; min-width: 0; height: 48px; border: 1px solid #A9ACA8; border-radius: 6px; padding: 0 14px; font-family: inherit; font-size: 16px;">
+          <button data-act="ship" type="button" class="press" style="height: 48px; padding: 0 18px; border: 2px solid #0B0C0A; background: #FFFFFF; border-radius: 6px; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer;">Calcular</button>
+        </div>
+      </form>
+      <ul style="list-style: none; margin: 0; padding: 0 16px; background: #F2F4EE; border-radius: 14px;"><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M1 3h15v13H1z"></path><path d="M16 8h4l3 3v5h-7z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Envío gratis desde 2 unidades</span><span style="font-size: 14px; color: #4A5244;">A todo el país, con Correo Argentino o Andreani.</span></span></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid #DDE2D4;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><circle cx="5" cy="17" r="3"></circle><circle cx="19" cy="17" r="3"></circle><path d="M8 17h6l3-6h-4l-2-3H8"></path><path d="M15 8h3"></path></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Envío gratis en Zona Norte</span><span style="font-size: 14px; color: #4A5244;">Con nuestra motomensajería, desde 1 unidad.</span></span></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid #DDE2D4;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Compra protegida</span><span style="font-size: 14px; color: #4A5244;">Pagá con Mercado Pago, tarjeta o transferencia.</span></span></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid #DDE2D4;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 15px;">Te respondemos por WhatsApp</span><span style="font-size: 14px; color: #4A5244;">Gente real del otro lado.</span></span></li></ul>
+    </div></div></div></section>
+<div data-sticky style="position: fixed; left: 0; right: 0; bottom: 0; display: none; background: #0B0C0A; color: #FFFFFF; box-shadow: 0 -6px 20px rgba(0,0,0,0.25); z-index: 5;">
+    <div style="display: flex; align-items: center; gap: 18px; padding: 12px 24px; max-width: 1200px; margin: 0 auto;">
+      <img src="{{thumb}}" alt="" style="flex: none; width: 56px; height: 56px; object-fit: contain; background: #FFFFFF; border-radius: 10px; display: block;">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-weight: 700; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rodillera WOUÜFit · {{colorName}}</span>
+        <span style="display: flex; align-items: baseline; gap: 8px;"><span style="font-weight: 700; font-size: 24px; font-variant-numeric: tabular-nums;">{{total}}</span><span style="font-size: 13px; color: #8C9483;">{{packName}}</span></span>
+      </div>
+      <a href="#" data-act="add" class="btn-lime" style="flex: none; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #9BF609; color: #0B0C0A; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>Agregar</a>
+    </div>
+  </div></template><div class="wm"><div data-wr="m"></div></div><div class="wd"><div data-wr="d"></div></div>
+<script>
+(function(){
+var root=document.currentScript.parentNode;
+class DCLogic{constructor(p){this.props=p}}
+window.__wouDC=DCLogic;
+
+class Component extends window.__wouDC {
+  constructor(props) {
+    super(props);
+    this.state = { color: 0, slide: 0, pack: 0 };
+  }
+  renderVals() {
+    const colors = [{"name": "Negro y agua", "dot": "linear-gradient(135deg, #111 50%, #4FD1C5 50%)", "imgs": ["https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@6f9d6a80fda4b560b2e6579f08b0549b982976fd/home/5c81d84165020a8eb4b43cb67b03db81.jpg"]}, {"name": "Gris y rosa", "dot": "linear-gradient(135deg, #A9ACA8 50%, #E84E9A 50%)", "imgs": ["https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@617bf1c7869d1b7954c1a1950b3797515840fc6e/prod/6a6269110cb7be5ba95b3b138fa18439.jpg"]}, {"name": "Negro y gris", "dot": "linear-gradient(135deg, #111 50%, #6A6E66 50%)", "imgs": ["https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@617bf1c7869d1b7954c1a1950b3797515840fc6e/prod/8dc2657bf4b41f338490a20f9594bc0b.jpg"]}];
+    const common = [{"src": "https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@6f9d6a80fda4b560b2e6579f08b0549b982976fd/home/40ad8fc79dcb8f75b447723ae4c4eac5.jpg", "alt": "Rodillera puesta debajo de la rótula"}, {"src": "https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@6f9d6a80fda4b560b2e6579f08b0549b982976fd/home/09ab9f75fe18f1d12cb83b81a3bf0bf1.jpg", "alt": "Pad acolchado interior"}, {"src": "https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@6f9d6a80fda4b560b2e6579f08b0549b982976fd/home/24886ee767ce02ff0f392838eef3d5ff.jpg", "alt": "Rodillera abierta con la correa de abrojo"}, {"src": "https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@6f9d6a80fda4b560b2e6579f08b0549b982976fd/home/808dba45385b1e700fcf80b49bfd9cde.jpg", "alt": "Rodillera puesta en una pierna tatuada"}];
+    const packs = [{"u": 1, "off": 21, "total": 19800, "price": "$19.800", "each": "Promo de lanzamiento", "cuota": "$6.600", "saving": "$5.190"}, {"u": 2, "off": 25, "total": 37485, "price": "$37.485", "each": "$18.742 c/u", "cuota": "$12.495", "saving": "$12.495"}, {"u": 3, "off": 30, "total": 52479, "price": "$52.479", "each": "$17.493 c/u", "cuota": "$17.493", "saving": "$22.491"}, {"u": 4, "off": 35, "total": 64974, "price": "$64.974", "each": "$16.244 c/u", "cuota": "$21.658", "saving": "$34.986"}];
+    const s = this.state;
+    const cur = colors[s.color];
+    const slides = cur.imgs.map((src) => ({ src: src, alt: 'Rodillera WOUÜFit color ' + cur.name.toLowerCase(), fit: 'contain' })).concat(common.map((c) => ({ src: c.src, alt: c.alt, fit: 'cover' })));
+    const n = slides.length;
+    const idx = Math.min(s.slide, n - 1);
+    const pk = packs[s.pack];
+    return {
+      slideImg: slides[idx].src,
+      slideAlt: slides[idx].alt,
+      slideFit: slides[idx].fit,
+      counter: (idx + 1) + ' / ' + n,
+      prev: () => this.setState({ slide: (idx - 1 + n) % n }),
+      next: () => this.setState({ slide: (idx + 1) % n }),
+      thumbs: slides.map((x, i) => ({
+        src: x.src,
+        label: 'Ver foto ' + (i + 1) + ' de ' + n,
+        on: i === idx ? 'true' : 'false',
+        pick: () => this.setState({ slide: i }),
+        box: 'flex: none; width: 84px; height: 84px; padding: 0; border-radius: 10px; overflow: hidden; cursor: pointer; background: #FFFFFF; box-sizing: border-box; border: ' + (i === idx ? '2px solid #0B0C0A' : '1px solid #DDE2D4') + ';'
+      })),
+      colorName: cur.name,
+      colors: colors.map((c, i) => ({
+        name: c.name,
+        on: i === s.color ? 'true' : 'false',
+        pick: () => this.setState({ color: i, slide: 0 }),
+        ring: 'width: 48px; height: 48px; border-radius: 50%; padding: 4px; background: #FFFFFF; cursor: pointer; box-sizing: border-box; border: ' + (i === s.color ? '2px solid #0B0C0A' : '1px solid #C8CCC2') + ';',
+        dot: 'display: block; width: 100%; height: 100%; border-radius: 50%; background: ' + c.dot + ';'
+      })),
+      packs: packs.map((k, i) => ({
+        name: k.u + (k.u === 1 ? ' unidad' : ' unidades'),
+        off: k.off + '% OFF',
+        price: k.price,
+        each: k.each,
+        free: k.u >= 2,
+        on: i === s.pack ? 'true' : 'false',
+        pick: () => this.setState({ pack: i }),
+        box: 'display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px; border-radius: 12px; cursor: pointer; font-family: inherit; color: #0B0C0A; text-align: left; box-sizing: border-box; ' + (i === s.pack ? 'border: 2px solid #0B0C0A; background: #F2F4EE;' : 'border: 1px solid #C8CCC2; background: #FFFFFF;')
+      })),
+      unitPrice: pk.u === 1 ? pk.price : pk.each,
+      unitOff: pk.off + '% OFF',
+      cuota: pk.cuota,
+      saving: pk.saving,
+      total: pk.price,
+      packName: pk.u + (pk.u === 1 ? ' unidad' : ' unidades'),
+      thumb: cur.imgs[0]
+    };
+  }
+}
+
+var comp=new Component({});var H=[];
+comp.setState=function(o){Object.assign(comp.state,o);render();};
+function get(c,p){return p.split('.').reduce(function(o,k){return o==null?o:o[k]},c)}
+function esc(v){return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function rend(t,c){
+ t=t.replace(/<sc-for list="\{\{\s*([\w.]+)\s*\}\}" as="(\w+)"[^>]*>([\s\S]*?)<\/sc-for>/g,function(m,l,as,inner){return (get(c,l)||[]).map(function(it){var n=Object.assign({},c);n[as]=it;return rend(inner,n)}).join('')});
+ t=t.replace(/<sc-if value="\{\{\s*([\w.]+)\s*\}\}"[^>]*>([\s\S]*?)<\/sc-if>/g,function(m,v,inner){return get(c,v)?rend(inner,c):''});
+ return t.replace(/\{\{\s*([\w.]+)\s*\}\}/g,function(m,p){var v=get(c,p);if(typeof v==='function'){H.push(v);return 'h'+(H.length-1)}return v==null?'':esc(v)});
+}
+var T={m:root.querySelector('template[data-wt=m]').innerHTML,d:root.querySelector('template[data-wt=d]').innerHTML};
+var shipOK=false;
+function render(){H=[];var v=comp.renderVals();['m','d'].forEach(function(k){var el=root.querySelector('[data-wr='+k+']');el.innerHTML=rend(T[k],v);});
+ root.querySelectorAll('[data-shipform]').forEach(function(f){f.style.display=shipOK?'':'none'});
+ placeSticky();}
+function form(){return document.querySelector('.js-product-form')}
+function sync(){var f=form();if(!f)return;var v=comp.renderVals();
+ var b=f.querySelector('.js-variant-button[data-option="'+v.colorName+'"]');
+ if(b&&!b.classList.contains('selected'))b.click();
+ var s=f.querySelector('select[name="variation[0]"]');if(s&&s.value!==v.colorName){s.value=v.colorName;s.dispatchEvent(new Event('change',{bubbles:true}));if(window.jQueryNuvem)try{jQueryNuvem(s).trigger('change')}catch(e){}}
+ var q=f.querySelector('[name=quantity]');if(q){q.value=String(comp.state.pack+1);q.dispatchEvent(new Event('input',{bubbles:true}));q.dispatchEvent(new Event('change',{bubbles:true}));}}
+function add(){var f=form();if(!f){alertless();return}sync();setTimeout(function(){var q=f.querySelector('[name=quantity]');if(q)q.value=String(comp.state.pack+1);var btn=f.querySelector('.js-addtocart:not(.js-addtocart-placeholder)');if(btn)btn.click();},350);}
+function alertless(){console.warn('wouü: no se encontró el formulario de compra')}
+root.addEventListener('click',function(e){var a=e.target.closest('[data-act]');if(a){e.preventDefault();if(a.getAttribute('data-act')==='add')add();else if(a.getAttribute('data-act')==='ship')ship(a);return}
+ var h=e.target.closest('[data-h]');if(h){var i=+h.getAttribute('data-h').slice(1);if(H[i]){e.preventDefault();H[i]();sync();}}});
+function ship(btn){var inp=btn.parentNode.querySelector('input');var ni=document.querySelector('.js-shipping-input');var nb=document.querySelector('.js-calculate-shipping');if(!ni||!nb)return;ni.value=inp.value;ni.dispatchEvent(new Event('input',{bubbles:true}));nb.click();var res=document.querySelector('.js-shipping-calculator-response');if(res)btn.closest('form').after(res);}
+var stickyOn=false;
+function placeSticky(){root.querySelectorAll('[data-sticky]').forEach(function(s){s.style.display=stickyOn?'block':'none'})}
+function onScroll(){var vis=[].slice.call(root.querySelectorAll('[data-wr] [data-act=add]')).filter(function(b){return b.offsetParent&&!b.closest('[data-sticky]')})[0];var on=!!vis&&vis.getBoundingClientRect().bottom<0;if(on!==stickyOn){stickyOn=on;placeSticky();}}
+window.addEventListener('scroll',onScroll,{passive:true});
+function init(){shipOK=!!(document.querySelector('.js-shipping-input')&&document.querySelector('.js-calculate-shipping'));render();setTimeout(sync,800);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script></div>
