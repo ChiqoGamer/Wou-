@@ -69,4 +69,59 @@
     <p style="margin: 10px 0 20px; color: #4A5244; font-size: 16px;">Combinalas en el mismo pedido y sumá el descuento por cantidad.</p>
     <a href="https://wouustore.com/productos/rodillera-wouufit/" class="press" style="display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; background: #FFFFFF; border: 1px solid #DDE2D4; border-radius: 16px; padding: 20px; text-decoration: none; color: #0B0C0A;"><img src="https://cdn.jsdelivr.net/gh/ChiqoGamer/Wou-@6f9d6a80fda4b560b2e6579f08b0549b982976fd/home/5c81d84165020a8eb4b43cb67b03db81.jpg" alt="Rodillera WOUÜFit" style="width: 100%; aspect-ratio: 1 / 1; object-fit: contain; display: block; border-radius: 10px; background: #FFFFFF;"><span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1;">Rodillera WOUÜFit</span><span style="font-size: 16px; color: #4A5244;">Banda de soporte rotuliano. Talle único, ajuste regulable.</span><span style="display: flex; align-items: baseline; gap: 8px;"><span style="font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 34px; line-height: 1;"><span data-wp="r:p">$19.800</span></span><span style="color: #6A7262; text-decoration: line-through; font-size: 14px;"><span data-wp="r:l">$24.990</span></span></span><span style="font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 4px;">Ver rodillera</span></span></a>
   </div></section>
-</div></div>
+</div></div><!--LB-->
+<style>
+.wlb{position:fixed;inset:0;z-index:100000;background:rgba(11,12,10,.94);display:flex;flex-direction:column;font-family:Barlow,system-ui,sans-serif;color:#fff;user-select:none}
+.wlb-top{display:flex;align-items:center;gap:16px;padding:14px 20px;flex:none}
+.wlb-c{font-weight:700;font-size:15px;min-width:52px}
+.wlb-h{flex:1;text-align:center;font-size:14px;color:#B9BFB0}
+.wlb-z{display:flex;gap:6px}
+.wlb button{font-family:inherit;cursor:pointer;border:0}
+.wlb-z button,.wlb-x{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center}
+.wlb-z button:hover,.wlb-x:hover,.wlb-a:hover{background:#9BF609;color:#0B0C0A}
+.wlb-st{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 84px}
+.wlb-st img{max-width:100%;max-height:100%;object-fit:contain;background:#fff;border-radius:12px;transform-origin:0 0;cursor:zoom-in;transition:transform .18s ease}
+.wlb-zoomed .wlb-st img{cursor:grab;transition:none}
+.wlb-zoomed .wlb-st img:active{cursor:grabbing}
+.wlb-a{position:absolute;top:50%;margin-top:-28px;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:34px;line-height:1;display:flex;align-items:center;justify-content:center}
+.wlb-p{left:16px}.wlb-n{right:16px}
+.wlb-top,.wlb-th{position:relative;z-index:2;background:rgba(11,12,10,.6)}.wlb-a{z-index:3;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+
+.wlb-th{flex:none;display:flex;gap:8px;justify-content:center;padding:14px 20px 18px;overflow-x:auto}
+.wlb-th button{flex:none;width:64px;height:64px;padding:0;border-radius:10px;overflow:hidden;background:#fff;opacity:.55;outline:2px solid transparent}
+.wlb-th button.on{opacity:1;outline-color:#9BF609}
+.wlb-th img{width:100%;height:100%;object-fit:contain;display:block}
+</style>
+<script>(function(){if(window.__wouLB)return;
+var LB=null;
+window.__wouLB=function(list,i,onPick){i=Math.max(0,i||0);
+ var z=parseFloat(getComputedStyle(document.documentElement).zoom)||1;
+ var o=document.createElement('div');o.className='wlb';o.style.zoom=String(1/z);
+ o.innerHTML='<div class="wlb-top"><span class="wlb-c"></span><span class="wlb-h">Clic o rueda del mouse para hacer zoom · arrastrá para mover</span><span class="wlb-z"><button type="button" data-z="-" aria-label="Alejar">−</button><button type="button" data-z="+" aria-label="Acercar">+</button></span><button type="button" class="wlb-x" aria-label="Cerrar">×</button></div><div class="wlb-st"><img alt="" draggable="false"></div><button type="button" class="wlb-a wlb-p" aria-label="Foto anterior">‹</button><button type="button" class="wlb-a wlb-n" aria-label="Foto siguiente">›</button><div class="wlb-th"></div>';
+ document.body.appendChild(o);document.documentElement.style.overflow='hidden';
+ var img=o.querySelector('img'),st=o.querySelector('.wlb-st'),th=o.querySelector('.wlb-th');
+ th.innerHTML=list.map(function(u,k){return '<button type="button" data-k="'+k+'"><img src="'+u+'" alt=""></button>'}).join('');
+ if(list.length<2){o.querySelectorAll('.wlb-a').forEach(function(b){b.style.display='none'});th.style.display='none'}
+ LB={o:o,img:img,list:list,i:i,s:1,tx:0,ty:0};
+ function base(){var r=o.getBoundingClientRect();return {left:r.left+img.offsetLeft,top:r.top+img.offsetTop}}
+ function apply(){var w=img.offsetWidth,h=img.offsetHeight;if(LB.s<=1){LB.s=1;LB.tx=0;LB.ty=0}else{LB.tx=Math.min(0,Math.max(w*(1-LB.s),LB.tx));LB.ty=Math.min(0,Math.max(h*(1-LB.s),LB.ty))}
+  img.style.transform='translate('+LB.tx+'px,'+LB.ty+'px) scale('+LB.s+')';o.classList.toggle('wlb-zoomed',LB.s>1)}
+ function zoomAt(ns,px,py){ns=Math.max(1,Math.min(5,ns));var b=base();var lx=px-b.left,ly=py-b.top;LB.tx=lx-(lx-LB.tx)*(ns/LB.s);LB.ty=ly-(ly-LB.ty)*(ns/LB.s);LB.s=ns;apply()}
+ function show(k){LB.i=(k+list.length)%list.length;LB.s=1;apply();img.src=list[LB.i];o.querySelector('.wlb-c').textContent=(LB.i+1)+' / '+list.length;
+  th.querySelectorAll('button').forEach(function(b,j){b.classList.toggle('on',j===LB.i)});if(onPick)onPick(LB.i)}
+ LB.show=show;show(i);
+ var drag=null,moved=false;
+ img.addEventListener('mousedown',function(e){e.preventDefault();drag={x:e.clientX,y:e.clientY,tx:LB.tx,ty:LB.ty};moved=false});
+ o.addEventListener('mousemove',function(e){if(!drag)return;var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;if(LB.s>1){LB.tx=drag.tx+dx;LB.ty=drag.ty+dy;apply()}});
+ o.addEventListener('mouseup',function(){drag=null});
+ img.addEventListener('click',function(e){e.stopPropagation();if(moved){moved=false;return}if(LB.s>1){LB.s=1;apply()}else zoomAt(2.5,e.clientX,e.clientY)});
+ st.addEventListener('wheel',function(e){e.preventDefault();var r=img.getBoundingClientRect();var px=Math.min(r.right,Math.max(r.left,e.clientX)),py=Math.min(r.bottom,Math.max(r.top,e.clientY));zoomAt(LB.s*Math.exp(-e.deltaY*0.0018),px,py)},{passive:false});
+ o.addEventListener('click',function(e){var t=e.target;
+  if(t.closest('.wlb-x')||t===st||t===o){lbClose();return}
+  if(t.closest('.wlb-p')){show(LB.i-1);return}if(t.closest('.wlb-n')){show(LB.i+1);return}
+  var zb=t.closest('[data-z]');if(zb){var r=img.getBoundingClientRect();zoomAt(LB.s*(zb.getAttribute('data-z')==='+'?1.6:1/1.6),(r.left+r.right)/2,(r.top+r.bottom)/2);return}
+  var tb=t.closest('[data-k]');if(tb){show(+tb.getAttribute('data-k'))}});
+}
+function lbClose(){if(!LB)return;LB.o.remove();LB=null;document.documentElement.style.overflow=''}
+document.addEventListener('keydown',function(e){if(!LB)return;if(e.key==='Escape')lbClose();else if(e.key==='ArrowLeft')LB.show(LB.i-1);else if(e.key==='ArrowRight')LB.show(LB.i+1)});
+})();</script>
