@@ -62,6 +62,7 @@ function apply(root){var r=prices.r,t=prices.t;if(!r&&!t)return;var m=(r&&t)?(t.
   if((a[1]==='l'||a[1]==='o'||a[1]==='s')&&noDisc[a[0]]){var p=el.parentElement;(p&&p.textContent.trim()===el.textContent.trim()?p:el).style.display='none'}
   var g=a[1].match(/^([los])([234])$/);if(g){var z=kk['_off'+g[2]]===0,p2=el.parentElement,tgt=(g[1]==='o'&&p2&&p2.textContent.trim()===el.textContent.trim())?p2:(g[1]!=='o'&&p2&&/Ahorr/.test(p2.textContent)&&p2.textContent.length<60?p2:el);tgt.style.display=z?'none':''}});
  var N=m.N||1;cuotasText(root||document.body,N)}
+function igNew(){document.querySelectorAll('a[href*="instagram.com"]').forEach(function(a){a.target='_blank';a.rel='noopener'})}igNew();document.addEventListener('DOMContentLoaded',igNew);
 window.__wouPrice={apply:apply,keys:keys,offFor:offFor,get:function(){return prices},ready:null};
 function emit(){if(!prices.r&&!prices.t)cuotasText(document.body,1);else apply();reveal();document.dispatchEvent(new Event('wou:prices'))}
 var own=fromDoc(document),need=[];
