@@ -38,9 +38,11 @@ function tiers(doc){var box=doc.querySelector('.js-product-promo-container[data-
 function cuotas(v){var n=1;try{var d=typeof v.installments_data==='string'?JSON.parse(v.installments_data):v.installments_data;Object.keys(d||{}).forEach(function(g){Object.keys(d[g]||{}).forEach(function(q){var r=d[g][q];if(r&&r.without_interests&&+q>n)n=+q})})}catch(e){}return n}
 function pick(v){if(!v||!v.length)return null;var a=v.filter(function(x){return x.available})[0]||v[0];var P=a.price_number,L=a.compare_at_price_number||P;return {P:P,L:Math.max(L,P),id:a.product_id,N:cuotas(a)}}
 function fromDoc(doc){var c=doc.querySelector('[data-variants]');if(!c)return null;try{var v=pick(JSON.parse(c.getAttribute('data-variants')));if(v)v.T=tiers(doc);return v}catch(e){return null}}
-var prices={};
-function getP(k){try{var c=JSON.parse(sessionStorage.getItem('wouP2_'+k)||'null');if(c&&Date.now()-c.ts<600000)return Promise.resolve(c.v)}catch(e){}
- return fetch(URL[k],{credentials:'same-origin'}).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){var v=fromDoc(new DOMParser().parseFromString(t,'text/html'));if(v){try{sessionStorage.setItem('wouP2_'+k,JSON.stringify({ts:Date.now(),v:v}))}catch(e){}}return v}).catch(function(){return null})}
+var prices={},last=0,CK='wouP3_';
+var de=document.documentElement;de.classList.add('wou-wait');var st=document.createElement('style');st.textContent='html.wou-wait [data-wp],html.wou-wait [data-wq]{visibility:hidden}';(document.head||de).appendChild(st);
+function reveal(){de.classList.remove('wou-wait')}setTimeout(reveal,2500);
+function cached(k){try{var c=JSON.parse(localStorage.getItem(CK+k)||'null');if(c&&Date.now()-c.ts<864e5)return c.v}catch(e){}return null}
+function fresh(k){return fetch(URL[k]+(URL[k].indexOf('?')<0?'?':'&')+'_wp='+Date.now(),{credentials:'same-origin',cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){var v=fromDoc(new DOMParser().parseFromString(t,'text/html'));if(v){try{localStorage.setItem(CK+k,JSON.stringify({ts:Date.now(),v:v}))}catch(e){}}return v}).catch(function(){return null})}
 var RQ=/\(?\s*(hasta\s+)?(\d+)\s+cuotas\s+sin\s+inter[eé]s\s*\)?/i;
 function hide(e){if(e&&e.style)e.style.display='none'}
 function cuotasText(root,N){var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),list=[],n;while(n=w.nextNode()){if(RQ.test(n.nodeValue)&&!(n.parentElement&&n.parentElement.closest('script,style,template')))list.push(n)}
@@ -61,9 +63,13 @@ function apply(root){var r=prices.r,t=prices.t;if(!r&&!t)return;var m=(r&&t)?(t.
   var g=a[1].match(/^([los])([234])$/);if(g){var z=kk['_off'+g[2]]===0,p2=el.parentElement,tgt=(g[1]==='o'&&p2&&p2.textContent.trim()===el.textContent.trim())?p2:(g[1]!=='o'&&p2&&/Ahorr/.test(p2.textContent)&&p2.textContent.length<60?p2:el);tgt.style.display=z?'none':''}});
  var N=m.N||1;cuotasText(root||document.body,N)}
 window.__wouPrice={apply:apply,keys:keys,offFor:offFor,get:function(){return prices},ready:null};
-var own=fromDoc(document),jobs=[];
-['r','t'].forEach(function(k){if(own&&own.id===IDS[k])prices[k]=own;else jobs.push(getP(k).then(function(v){if(v)prices[k]=v}))});
-window.__wouPrice.ready=Promise.all(jobs).then(function(){apply();document.dispatchEvent(new Event('wou:prices'));return prices});
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){apply()});else apply();
+function emit(){if(!prices.r&&!prices.t)cuotasText(document.body,1);else apply();reveal();document.dispatchEvent(new Event('wou:prices'))}
+var own=fromDoc(document),need=[];
+['r','t'].forEach(function(k){if(own&&own.id===IDS[k]){prices[k]=own;try{localStorage.setItem(CK+k,JSON.stringify({ts:Date.now(),v:own}))}catch(e){}}else{var c=cached(k);if(c)prices[k]=c;need.push(k)}});
+function refresh(){last=Date.now();return Promise.all(need.map(function(k){return fresh(k).then(function(v){if(v)prices[k]=v})})).then(emit)}
+var haveAll=need.every(function(k){return prices[k]});
+window.__wouPrice.ready=refresh().then(function(){return prices});
+if(haveAll||!need.length||own){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',emit);else emit()}
+if(need.length){document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&Date.now()-last>60000)refresh()});setInterval(function(){if(document.visibilityState==='visible')refresh()},180000)}
 })();
 </script>
