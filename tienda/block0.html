@@ -31,7 +31,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 var IDS={r:378888020,t:376678547},URL={r:'/productos/rodillera-wouufit/',t:'/productos/tobillera-deportiva-wouu/'};
 function br(x){var f=Math.floor(x),d=x-f;if(Math.abs(d-0.5)<1e-9)return f%2===0?f:f+1;return Math.round(x)}
 function fmt(n){return '$'+Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
-function keys(L,P){var k={p:fmt(P),l:fmt(L),o:br((1-P/L)*100)+'% OFF',c:fmt(br(P/3)),s:fmt(L-P)};[[2,25],[3,30],[4,35]].forEach(function(a){var u=a[0],t=br(L*u*(100-a[1])/100);k['t'+u]=fmt(t);k['e'+u]=fmt(br(t/u));k['c'+u]=fmt(br(t/3));k['s'+u]=fmt(L*u-t);k['l'+u]=fmt(L*u)});return k}
+function keys(L,P){var k={p:fmt(P),l:fmt(L),o:br((1-P/L)*100)+'% OFF',c:fmt(br(P/3)),s:fmt(L-P)};[[2,10],[3,15],[4,20]].forEach(function(a){var u=a[0],t=br(P*u*(100-a[1])/100);k['t'+u]=fmt(t);k['e'+u]=fmt(br(t/u));k['c'+u]=fmt(br(t/3));k['s'+u]=fmt(P*u-t);k['l'+u]=fmt(P*u)});return k}
 function pick(v){if(!v||!v.length)return null;var a=v.filter(function(x){return x.available})[0]||v[0];var P=a.price_number,L=a.compare_at_price_number||P;return {P:P,L:Math.max(L,P),id:a.product_id}}
 function fromDoc(doc){var c=doc.querySelector('[data-variants]');if(!c)return null;try{return pick(JSON.parse(c.getAttribute('data-variants')))}catch(e){return null}}
 var prices={};
