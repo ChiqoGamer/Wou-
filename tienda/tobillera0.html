@@ -217,7 +217,7 @@ function shipRender(list,cp){if(!list.length)return '<div style="margin-top:10px
  var d=list.filter(function(o){return !o.pick}),p=list.filter(function(o){return o.pick});
  var h='<div style="margin-top:12px;font-size:13px;color:#6A7262">Opciones para el CP '+shipEsc(cp)+'. El envío es gratis a todo el país.</div>';
  if(d.length)h+='<div style="margin-top:8px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Envío a domicilio</div><ul style="list-style:none;margin:0;padding:0">'+d.map(row).join('')+'</ul>';
- if(p.length)h+='<div style="margin-top:10px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Retiro en sucursal del correo</div><ul style="list-style:none;margin:0;padding:0">'+p.map(row).join('')+'</ul>';
+ if(p.length)h+='<div style="margin-top:10px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Retiro en sucursal</div><ul style="list-style:none;margin:0;padding:0">'+p.map(row).join('')+'</ul>';
  return h}
 function shipShow(){root.querySelectorAll('[data-shipform]').forEach(function(f){var el=f.querySelector('[data-shipres]');if(!el){el=document.createElement('div');el.setAttribute('data-shipres','');f.appendChild(el)}el.innerHTML=shipRes})}
 function ship(btn){var inp=btn.parentNode.querySelector('input');var cp=(inp.value||'').replace(/\D/g,'');var B=shipBox();if(!B.ni||!B.nb)return;if(cp.length<4){shipRes='<div style="margin-top:10px;font-size:15px;color:#B42318">Ingresá un código postal válido (ej. 1611).</div>';shipShow();return}
