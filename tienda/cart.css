@@ -1,0 +1,69 @@
+/* wouü: carrito con estilo de la marca */
+#modal-cart{color:#0B0C0A;font-family:Barlow,Arial,sans-serif}
+@media (min-width:768px){#modal-cart{width:520px!important;max-width:100%}}
+#modal-cart .modal-header{background:#0B0C0A!important;color:#fff;padding:14px 16px!important;border:0!important;margin:0!important;align-items:center}
+#modal-cart .modal-title{font-family:'Bebas Neue',Impact,sans-serif!important;font-weight:400!important;font-size:30px!important;line-height:1!important;letter-spacing:.02em;color:#fff!important;display:flex;align-items:center;gap:10px;margin:0!important}
+#modal-cart .modal-close{color:#fff!important;fill:#fff!important;width:44px;height:44px;display:grid;place-items:center;margin-right:-10px}
+#modal-cart .modal-close svg{fill:#fff!important;color:#fff!important;width:20px;height:20px}
+#modal-cart .wck-n{background:#9BF609;color:#0B0C0A;font-family:Barlow,Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:0;min-width:24px;height:24px;padding:0 6px;border-radius:999px;display:inline-grid;place-items:center;box-sizing:border-box}
+#modal-cart .wck-strip{display:flex;align-items:center;gap:12px;padding:10px 16px;background:#9BF609;color:#0B0C0A;font-weight:700;font-size:14px;line-height:1.3}
+#modal-cart .wck-strip.top{background:#EAF9D2;color:#2F5F00}
+#modal-cart .wck-strip[hidden]{display:none}
+#modal-cart .wck-strip span{flex:1;min-width:0}
+#modal-cart .wck-strip button{flex:none;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:#0B0C0A;color:#9BF609;font-family:inherit;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:transform 140ms cubic-bezier(.23,1,.32,1)}
+#modal-cart .wck-strip button:active{transform:scale(.96)}
+#modal-cart .modal-body{padding:0 16px!important}
+#modal-cart .cart-item{display:flex!important;gap:14px;padding:16px 0!important;margin:0!important;border-bottom:1px solid #EEF0EA}
+#modal-cart .cart-item-image-container{flex:none;width:76px!important;max-width:76px!important;padding:0!important}
+#modal-cart .cart-item-image{width:76px!important;height:76px!important;object-fit:contain;background:#fff;border:1px solid #EEF0EA;border-radius:12px}
+#modal-cart .cart-item-info-container{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding:0!important}
+#modal-cart .cart-item-product-info,#modal-cart .cart-item-totals-container{width:100%!important;max-width:none!important;float:none!important}
+#modal-cart .cart-item-name-container{flex:1;min-width:0}
+#modal-cart .cart-item-product-info{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+#modal-cart .cart-item-name{display:block;font-family:'Bebas Neue',Impact,sans-serif!important;font-weight:400!important;font-size:22px!important;line-height:1!important;color:#0B0C0A!important;text-decoration:none!important}
+#modal-cart .cart-item-variant{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:14px;color:#4A5244}
+#modal-cart .cart-item-variant i{flex:none;width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+#modal-cart .cart-item-promo-label,#modal-cart .cart-item-labels{display:none!important}
+#modal-cart .cart-item-delete-button{width:36px;height:36px;min-height:0!important;padding:0!important;margin:-6px -8px 0 0!important;font-size:0!important;color:transparent!important;border-radius:50%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C9483' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13'/%3E%3C/svg%3E") center/18px no-repeat!important;text-decoration:none!important}
+#modal-cart .cart-item-delete-button:hover{background-color:#F2F4EE!important}
+#modal-cart .cart-item-totals-container{display:flex!important;justify-content:space-between;align-items:center;gap:10px}
+#modal-cart .cart-item-quantity{flex:none}
+#modal-cart .form-quantity{margin:0!important;border:1px solid #DDE2D4!important;border-radius:999px!important;height:38px!important;width:auto!important;background:#fff}
+#modal-cart .form-quantity .grid{height:36px}
+#modal-cart .cart-quantity-btn{width:36px!important;height:36px!important;min-height:0!important;padding:0!important;display:grid!important;place-items:center;border-radius:50%!important;background:transparent!important}
+#modal-cart .cart-quantity-btn svg{width:14px;height:14px}
+#modal-cart .cart-quantity-input{width:24px!important;min-width:0!important;height:36px!important;border:0!important;background:transparent!important;text-align:center;font-weight:700!important;font-size:16px!important}
+#modal-cart .cart-item-subtotal,#modal-cart .js-cart-item-subtotal{font-family:'Bebas Neue',Impact,sans-serif!important;font-weight:400!important;font-size:24px!important;line-height:1!important;color:#0B0C0A!important}
+#modal-cart .shipping-progress-bar{background:#F2F4EE!important;border:0!important;border-radius:12px!important;padding:12px 14px!important;margin:16px 0 6px!important}
+#modal-cart .shipping-progress-bar .ship-free-rest-text{color:#2F5F00!important;font-weight:700!important;font-size:14px!important}
+#modal-cart .shipping-progress-bar .progress-bar-icon{color:#2F5F00;fill:#2F5F00}
+#modal-cart .shipping-progress-bar:has(.success) .bar-progress{display:none!important}
+#modal-cart .shipping-options-heading{display:flex;align-items:center;gap:8px;margin:16px 0 8px!important;font-weight:700;font-size:13px!important;letter-spacing:.06em;text-transform:uppercase;color:#4A5244}
+#modal-cart .shipping-options ul{display:flex;flex-direction:column;gap:8px;margin:0!important}
+#modal-cart .shipping-options li{margin:0!important}
+#modal-cart label.radio-button.box{background:#fff!important;border:1px solid #DDE2D4!important;border-radius:12px!important;padding:12px 14px!important;margin:0!important}
+#modal-cart label.radio-button.box.selected{border:2px solid #0B0C0A!important;padding:11px 13px!important}
+#modal-cart [data-component="option.name"]{font-weight:600;font-size:15px;line-height:1.3;color:#0B0C0A}
+#modal-cart .shipping-option-date{font-size:13px;color:#6A7262}
+#modal-cart .shipping-option-price-free{display:flex;flex-direction:column;align-items:flex-end;gap:3px;font-size:0!important;color:transparent!important}
+#modal-cart .shipping-option-price-free::before{content:"GRATIS";font-size:12px;font-weight:700;color:#2F5F00;background:#EAF9D2;padding:3px 8px;border-radius:999px;letter-spacing:.02em}
+#modal-cart .shipping-option-price-free .price-compare{font-size:12px!important;color:#8C9483!important}
+#modal-cart .radio-button-icon.checked{background:#9BF609!important;border-color:#0B0C0A!important}
+#modal-cart .wck-foot{flex:none;border-top:1px solid #DDE2D4;padding:14px 16px 18px;padding-bottom:calc(18px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -8px 24px rgba(11,12,10,.06)}
+#modal-cart .wck-foot > *{margin:0!important;padding:0!important}
+#modal-cart .wck-foot .cart-subtotals-container{margin:0!important;padding:0!important}
+#modal-cart .wck-foot .cart-totals-row{display:flex!important;justify-content:space-between;align-items:baseline;font-size:14px!important;color:#4A5244;margin:0 0 2px!important;padding:0!important}
+#modal-cart .wck-foot .cart-totals-promotions{color:#2F5F00!important;font-weight:600;font-size:14px}
+#modal-cart .wck-foot .cart-totals-promotions .promotions-wrapper,#modal-cart .wck-foot .total-promotions-row{display:flex!important;justify-content:space-between;width:100%;float:none!important}
+#modal-cart .wck-foot .cart-promotion-detail,#modal-cart .wck-foot .cart-promotion-number{color:#2F5F00!important;float:none!important;font-size:14px!important}
+#modal-cart .wck-foot .cart-totals-hint,#modal-cart .wck-foot .cart-totals-shipping span{color:#2F5F00!important;font-weight:600;opacity:1!important}
+#modal-cart .wck-foot .cart-totals-shipping > span:first-child{color:#4A5244!important;font-weight:400}
+#modal-cart .wck-foot .cart-totals-total{margin-top:8px!important;color:#0B0C0A}
+#modal-cart .wck-foot .cart-totals-total > span:first-child{font-family:'Bebas Neue',Impact,sans-serif;font-size:26px;line-height:1}
+#modal-cart .wck-foot .js-cart-total{font-family:'Bebas Neue',Impact,sans-serif!important;font-weight:400!important;font-size:40px!important;line-height:.9!important;color:#0B0C0A!important}
+#modal-cart .wck-cu{text-align:right;font-size:13px;color:#4A5244}
+#modal-cart .wck-foot .js-ajax-cart-submit{margin-top:12px!important}
+#modal-cart .wck-foot input[name="go_to_checkout"]{min-height:56px!important;border-radius:6px!important;background:#9BF609!important;color:#0B0C0A!important;border:0!important;font-weight:700!important;font-size:17px!important;letter-spacing:.06em!important;text-transform:uppercase}
+#modal-cart .wck-foot .cart-continue-shopping{margin-top:8px!important;text-align:center}
+#modal-cart .wck-foot .cart-continue-shopping a{min-height:36px;font-size:14px!important;font-weight:600!important;color:#4A5244!important;text-transform:none!important;letter-spacing:0!important;text-decoration:underline}
+@media (min-width:768px){#modal-cart .modal-header,#modal-cart .wck-strip,#modal-cart .wck-foot{padding-left:24px!important;padding-right:24px!important}#modal-cart .modal-body{padding:0 24px!important}}
