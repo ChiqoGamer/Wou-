@@ -5,6 +5,22 @@ function tiers(){var g=pr(),t=(g.r&&g.r.T&&g.r.T.length&&g.r.T)||(g.t&&g.t.T&&g.
 function cuotas(){var g=pr(),a=g.r||g.t;return a&&a.N>1?a.N:3}
 function fmt(v){return '$'+Math.round(v).toLocaleString('es-AR')}
 function setT(el,t){if(el&&el.textContent!==t)el.textContent=t}
+var CAR=[[/correo argentino cl[aá]sico|correo arg clasico/i,'Correo Argentino Clásico','clasico'],[/correo argentino expreso|correo arg expreso/i,'Correo Argentino Expreso','expreso'],[/andreani/i,'Andreani','andreani'],[/\boca\b/i,'OCA','oca']];
+function carOf(t){t=(t||'').replace(/[-_]/g,' ');for(var i=0;i<CAR.length;i++)if(CAR[i][0].test(t))return CAR[i];return null}
+function nameLi(li,c,clone){if(!c)return;var t='Retiro en sucursal · '+c[1];var n=li.querySelector('[data-component="option.name"],.wck-oname')||li.querySelector('.shipping-option-details > div');if(!n)return;if(clone){n.removeAttribute('data-component');n.classList.add('wck-oname');if(n.textContent.trim()!==t)n.textContent=t;return}var tn=[].filter.call(n.childNodes,function(x){return x.nodeType===3&&x.nodeValue.trim()})[0];if(tn){if(tn.nodeValue.trim()!==t)tn.nodeValue=' '+t+' '}else n.insertBefore(document.createTextNode(t+' '),n.firstChild)}
+function splitPick(m){m.querySelectorAll('li.js-shipping-list-item').forEach(function(li){if(li.hasAttribute('data-wck-clone'))return;var inp=li.querySelector('input.js-pickup-option');if(!inp)return;var code=inp.getAttribute('data-code')||'',own=carOf(code);
+ var ul=li.querySelector('ul.shipping-suboption-list');if(li.__wsp||!ul||!ul.children.length){nameLi(li,own);return}li.__wsp=1;
+ var kids=[].slice.call(ul.children),keys=[],groups=[],by={};
+ kids.forEach(function(x){var c=carOf(x.textContent),k=c?c[2]:'otro';keys.push(k);if(!by[k]){by[k]={c:c,k:k};groups.push(by[k])}x.textContent=x.textContent.replace(/^\s*env[ií]o nube\s*-\s*.*?\ba sucursal\s*-\s*/i,'')});
+ var main=(own&&by[own[2]])||groups[0];
+ if(groups.length>1){var after=li;groups.forEach(function(g,gi){if(g===main)return;var cl=li.cloneNode(true),suf='-w'+gi;cl.setAttribute('data-wck-clone','1');
+   cl.querySelectorAll('[id]').forEach(function(e){e.id=e.id+suf});
+   cl.querySelectorAll('[data-target],[data-modal-url],[data-url],[data-component^="selected_suboption"]').forEach(function(e){['data-target','data-modal-url','data-url','data-component'].forEach(function(at){var v=e.getAttribute(at);if(v&&/selected_suboption|pickup-modal/.test(v))e.setAttribute(at,v+suf)})});
+   var cu=cl.querySelector('ul.shipping-suboption-list');[].slice.call(cu.children).forEach(function(x,i){if(keys[i]!==g.k)x.remove()});
+   var ci=cl.querySelector('input');if(ci){ci.checked=false;var lb=cl.querySelector('label');lb&&lb.classList.remove('selected')}
+   nameLi(cl,g.c,true);after.parentNode.insertBefore(cl,after.nextSibling);after=cl});
+  kids.forEach(function(x,i){if(keys[i]!==main.k)x.remove()})}
+ nameLi(li,main.c||own)})}
 function run(){var m=document.getElementById('modal-cart');if(!m)return;var form=m.querySelector('.modal-form')||m,body=m.querySelector('.modal-body'),head=m.querySelector('.modal-header');if(!body||!head)return;
  var items=[].slice.call(m.querySelectorAll('.js-cart-item')),n=0;items.forEach(function(it){var i=it.querySelector('.js-cart-quantity-input');n+=i?(parseInt(i.value,10)||0):1});
  var title=m.querySelector('.modal-title'),badge=title&&title.querySelector('.wck-n');
@@ -24,6 +40,7 @@ function run(){var m=document.getElementById('modal-cart');if(!m)return;var form
  var tot=m.querySelector('.js-cart-total'),cu=foot.querySelector('.wck-cu');if(tot){if(!cu){cu=document.createElement('div');cu.className='wck-cu';var tc=tot.closest('.js-cart-total-container')||tot.parentNode;tc.parentNode.insertBefore(cu,tc.nextSibling)}var v=parseFloat((tot.textContent||'').replace(/[^\d,]/g,'').replace(',','.'))||0,N=cuotas();setT(cu,v&&N>1?'o '+N+' cuotas sin interés de '+fmt(v/N):'')}
  var L=[[/^\s*Subtotal\s*\(sin env[ií]o\):?\s*$/,'Subtotal'],[/^\s*Costo de env[ií]o:?\s*$/,'Envío'],[/^\s*Total:\s*$/,'Total'],[/^\s*Retirar por\s*$/,'Retiro en sucursal']];m.querySelectorAll('.cart-totals-row > span:first-child, .shipping-options-heading span').forEach(function(e){if(e.children.length)return;L.forEach(function(r){if(r[0].test(e.textContent))setT(e,r[1])})});
  m.querySelectorAll('.js-total-promotions-detail-row').forEach(function(r){var e=r.querySelector('.cart-promotion-detail')||r.firstElementChild;if(!e)return;var p=(e.textContent.match(/(\d+)\s*%\s*OFF/i)||[])[1];if(p)setT(e,'Descuento por cantidad ('+p+'%)')});
+ splitPick(m);
  var em=m.querySelector('.js-empty-ajax-cart');if(em&&!em.querySelector('.wck-empty')){var d=document.createElement('div');d.className='wck-empty';d.innerHTML='<div class="wck-empty-ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0B0C0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg></div><h3>Tu carrito está vacío</h3><p>Elegí tu rodillera o tobillera y volvé acá.</p><a class="wck-go" href="/productos/">Ver productos</a><div class="wck-links"><a href="/productos/rodillera-wouufit/">Rodillera</a><a href="/productos/tobillera-deportiva-wouu/">Tobillera</a></div><small></small>';em.appendChild(d);
   d.querySelector('.wck-go').addEventListener('click',function(e){if(location.pathname!=='/')return;var t=document.getElementById((innerWidth>=768?'d-':'m-')+'productos')||document.getElementById((innerWidth>=768?'d-':'m-')+'rodillera');if(!t)return;e.preventDefault();var c=m.querySelector('.js-modal-close-private');if(c)c.click();setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'})},250)})}
  var es=m.querySelector('.wck-empty small');if(es){var N2=cuotas();setT(es,'Envío gratis a todo el país'+(N2>1?' · '+N2+' cuotas sin interés':''))}
