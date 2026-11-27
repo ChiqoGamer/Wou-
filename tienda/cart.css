@@ -52,9 +52,9 @@
 #modal-cart .wck-foot{flex:none;border-top:1px solid #DDE2D4;padding:14px 16px 18px;padding-bottom:calc(18px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -8px 24px rgba(11,12,10,.06)}
 #modal-cart .wck-foot > *{margin:0!important;padding:0!important}
 #modal-cart .wck-foot .cart-subtotals-container{margin:0!important;padding:0!important}
-#modal-cart .wck-foot .cart-totals-row{display:flex!important;justify-content:space-between;align-items:baseline;font-size:14px!important;color:#4A5244;margin:0 0 2px!important;padding:0!important}
+#modal-cart .wck-foot .cart-totals-row:not([style*="none"]){display:flex!important;justify-content:space-between;align-items:baseline;font-size:14px!important;color:#4A5244;margin:0 0 2px!important;padding:0!important}
 #modal-cart .wck-foot .cart-totals-promotions{color:#2F5F00!important;font-weight:600;font-size:14px}
-#modal-cart .wck-foot .cart-totals-promotions .promotions-wrapper,#modal-cart .wck-foot .total-promotions-row{display:flex!important;justify-content:space-between;width:100%;float:none!important}
+#modal-cart .wck-foot .cart-totals-promotions .promotions-wrapper,#modal-cart .wck-foot .total-promotions-row:not([style*="none"]),#modal-cart .wck-foot .js-total-promotions-detail-row:not([style*="none"]){display:flex!important;justify-content:space-between;width:100%;float:none!important;color:#2F5F00!important;font-weight:600}
 #modal-cart .wck-foot .cart-promotion-detail,#modal-cart .wck-foot .cart-promotion-number{color:#2F5F00!important;float:none!important;font-size:14px!important}
 #modal-cart .wck-foot .cart-totals-hint,#modal-cart .wck-foot .cart-totals-shipping span{color:#2F5F00!important;font-weight:600;opacity:1!important}
 #modal-cart .wck-foot .cart-totals-shipping > span:first-child{color:#4A5244!important;font-weight:400}
